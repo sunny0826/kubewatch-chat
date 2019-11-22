@@ -10,10 +10,10 @@
 slack:
   enabled: false
   # Slack channel to notify
-  channel: "#devops_watch"
+  channel: "XXX"
   # Slack bots token. Create using: https://my.slack.com/services/new/bot
   # and invite the bot to your channel using: /join @botname
-  token: "xoxb-473347227364-839300836276-a25bSTYVyEioBw66VuESxj1G"
+  token: "XXX"
 
 hipchat:
   enabled: false
@@ -33,8 +33,8 @@ webhook:
   # url: ""
 dingtalk:
   enabled: true
-  token: "39587a4c5cd671e1f53ac706e96271eb3855f8c71c3b05f844efa8b3bf4da833"
-  sign: "SEC45564047b7a2b492a2827832aea0f139952cd65d901f94c1f5c444d2cfe8ec8d"
+  token: "XXX"
+  sign: "XXX"
 
 # namespace to watch, leave it empty for watching all.
 namespaceToWatch: ""
