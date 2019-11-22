@@ -6,7 +6,7 @@
 ## TL;DR;
 
 ```console
-$ helm install stable/kubewatch
+$ helm install {YOUR_RELEASE_NAME} .
 ```
 
 ## Introduction
@@ -23,7 +23,7 @@ This chart bootstraps a kubewatch deployment on a [Kubernetes](http://kubernetes
 To install the chart with the release name `my-release`:
 
 ```console
-$ helm install stable/kubewatch --name my-release
+$ helm install --name my-release .
 ```
 
 The command deploys kubewatch on the Kubernetes cluster in the default configuration. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
@@ -61,7 +61,10 @@ The following table lists the configurable parameters of the kubewatch chart and
 | `serviceAccount.create`                  | If true, create a serviceAccount                                                                           | `true`                            |
 | `serviceAccount.name`                    | existing ServiceAccount to use (ignored if rbac.create=true)                                               | ``                                |
 | `resources`                              | pod resource requests & limits                                                                             | `{}`                              |
-| `slack.enabled`                          | Enable Slack notifications                                                                                 | `true`                            |
+| `dingtalk.enabled`                       | Enable Dingtalk notifications                                                                              | `true`                            |
+| `dingtalk.token`                         | Dingtalk bot token                                                                                         | `""`                              |
+| `dingtalk.sign`                          | Dingtalk bot sign                                                                                          | `""`                              |
+| `slack.enabled`                          | Enable Slack notifications                                                                                 | `false`                           |
 | `slack.channel`                          | Slack channel to notify                                                                                    | `""`                              |
 | `slack.token`                            | Slack API token                                                                                            | `""`                              |
 | `hipchat.enabled`                        | Enable HipChat notifications                                                                               | `false`                           |
@@ -91,8 +94,8 @@ The following table lists the configurable parameters of the kubewatch chart and
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```console
-$ helm install stable/kubewatch --name my-release \
-  --set=slack.channel="#bots",slack.token="XXXX-XXXX-XXXX"
+$ helm install . --name my-release \
+  --set=dingtalk.sign="XXX",dingtalk.token="XXXX-XXXX-XXXX"
 ```
 
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,
@@ -111,19 +114,29 @@ It is strongly recommended to use immutable tags in a production environment. Th
 
 Bitnami will release a new chart updating its containers if a new version of the main container, significant changes, or critical vulnerabilities exist.
 
+### Create a Dingtalk bot
+
+1. get token
+
+    ![](dosc/image/WX20191121-092710.png)
+    
+    Copy webhook and get `https://oapi.dingtalk.com/robot/send?access_token={YOUR_TOKEN}`,`{TOUR_TOKEN}` is the token.
+
+2. get sign
+    
+    ![](dosc/image/WX20191121-092816.png)
+    
+    Copy the sign.
+
+3. Use custom keywords or IP addresses(Optional)
+
+    ![](dosc/image/WX20191121-093914.png)
+    
+    If you don't want to use the sign, please set `dingtalk.sign=''`. Then you can use the custom keywords or IP addresses.
+
 ### Create a Slack bot
 
 Open [https://my.slack.com/services/new/bot](https://my.slack.com/services/new/bot) to create a new Slack bot.
 The API token can be found on the edit page (it starts with `xoxb-`).
 
 Invite the Bot to your channel by typing `/join @name_of_your_bot` in the Slack message area.
-
-## Upgrading
-
-### To 1.0.0
-
-Helm performs a lookup for the object based on its group (apps), version (v1), and kind (Deployment). Also known as its GroupVersionKind, or GVK. Changing the GVK is considered a compatibility breaker from Kubernetes' point of view, so you cannot "upgrade" those objects to the new GVK in-place. Earlier versions of Helm 3 did not perform the lookup correctly which has since been fixed to match the spec.
-
-In https://github.com/helm/charts/pull/17285 the `apiVersion` of the deployment resources was updated to `apps/v1` in tune with the api's deprecated, resulting in compatibility breakage.
-
-This major version signifies this change.
