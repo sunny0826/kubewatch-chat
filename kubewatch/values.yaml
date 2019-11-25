@@ -9,10 +9,7 @@
 
 slack:
   enabled: false
-  # Slack channel to notify
   channel: ""
-  # Slack bots token. Create using: https://my.slack.com/services/new/bot
-  # and invite the bot to your channel using: /join @botname
   token: ""
 
 hipchat:
