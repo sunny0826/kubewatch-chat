@@ -10,10 +10,10 @@
 slack:
   enabled: false
   # Slack channel to notify
-  channel: "XXX"
+  channel: ""
   # Slack bots token. Create using: https://my.slack.com/services/new/bot
   # and invite the bot to your channel using: /join @botname
-  token: "XXX"
+  token: ""
 
 hipchat:
   enabled: false
@@ -33,8 +33,8 @@ webhook:
   # url: ""
 dingtalk:
   enabled: true
-  token: "XXX"
-  sign: "XXX"
+  token: ""
+  sign: ""
 
 # namespace to watch, leave it empty for watching all.
 namespaceToWatch: ""
