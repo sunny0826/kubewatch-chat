@@ -24,6 +24,7 @@ import (
 	"time"
 
 	"github.com/Sirupsen/logrus"
+	"github.com/gogf/gf/container/gset"
 	"github.com/sunny0826/kubewatch-chart/config"
 	"github.com/sunny0826/kubewatch-chart/pkg/event"
 	"github.com/sunny0826/kubewatch-chart/pkg/handlers"
@@ -55,6 +56,8 @@ type Event struct {
 	namespace    string
 	resourceType string
 }
+
+var updateSet = gset.New(true)
 
 // Controller object
 type Controller struct {
@@ -479,7 +482,17 @@ func (c *Controller) processItem(newEvent Event) error {
 			Kind: newEvent.resourceType,
 			Name: newEvent.key,
 		}
-		c.eventHandler.ObjectUpdated(obj, kbEvent)
+
+		if !updateSet.Contains(kbEvent.Name) {
+			c.eventHandler.ObjectUpdated(obj, kbEvent)
+			updateSet.Add(kbEvent.Name)
+			go func() {
+				time.AfterFunc(10*time.Second, func(){
+					fmt.Println("10 second")
+					updateSet.Remove(kbEvent.Name)
+				})
+			}()
+		}
 		return nil
 	case "delete":
 		kbEvent := event.Event{

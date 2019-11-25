@@ -6,15 +6,14 @@ require (
 	github.com/Sirupsen/logrus v1.0.4
 	github.com/davecgh/go-spew v1.1.0 // indirect
 	github.com/emicklei/go-restful v2.5.0+incompatible // indirect
-	github.com/fsnotify/fsnotify v1.4.7 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/go-openapi/jsonpointer v0.0.0-20170102174223-779f45308c19 // indirect
 	github.com/go-openapi/jsonreference v0.0.0-20161105162150-36d33bfe519e // indirect
 	github.com/go-openapi/spec v0.0.0-20171219195406-fa03337d7da5 // indirect
 	github.com/go-openapi/swag v0.0.0-20180102232305-84f4bee7c0a6 // indirect
+	github.com/gogf/gf v1.9.10
 	github.com/gogo/protobuf v0.0.0-20171007142547-342cbe0a0415 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b // indirect
-	github.com/golang/protobuf v0.0.0-20171113180720-1e59b77b52bf // indirect
 	github.com/google/btree v0.0.0-20161217183710-316fb6d3f031 // indirect
 	github.com/google/go-querystring v0.0.0-20170111101155-53e6ce116135 // indirect
 	github.com/google/gofuzz v0.0.0-20170612174753-24818f796faf // indirect
@@ -42,10 +41,6 @@ require (
 	github.com/spf13/viper v1.0.0
 	github.com/sunny0826/dingtalk v0.0.0-20191122023751-3b8fe46073aa
 	github.com/tbruyelle/hipchat-go v0.0.0-20160921153256-749fb9e14beb
-	golang.org/x/crypto v0.0.0-20180112200814-13931e22f9e7 // indirect
-	golang.org/x/net v0.0.0-20180112015858-5ccada7d0a7b // indirect
-	golang.org/x/sys v0.0.0-20180115085844-fff93fa7cd27 // indirect
-	golang.org/x/text v0.3.1-0.20171227012246-e19ae1496984 // indirect
 	gopkg.in/inf.v0 v0.9.0 // indirect
 	gopkg.in/yaml.v2 v2.0.0
 	k8s.io/api v0.0.0-20171207041203-11147472b7c9

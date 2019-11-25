@@ -118,19 +118,19 @@ Bitnami will release a new chart updating its containers if a new version of the
 
 1. get token
 
-    ![](dosc/image/WX20191121-092710.png)
+    ![](docs/image/WX20191121-092710.png)
     
     Copy webhook and get `https://oapi.dingtalk.com/robot/send?access_token={YOUR_TOKEN}`,`{TOUR_TOKEN}` is the token.
 
 2. get sign
     
-    ![](dosc/image/WX20191121-092816.png)
+    ![](docs/image/WX20191121-092816.png)
     
     Copy the sign.
 
 3. Use custom keywords or IP addresses(Optional)
 
-    ![](dosc/image/WX20191121-093914.png)
+    ![](docs/image/WX20191121-093914.png)
     
     If you don't want to use the sign, please set `dingtalk.sign=''`. Then you can use the custom keywords or IP addresses.
 
