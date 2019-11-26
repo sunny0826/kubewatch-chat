@@ -105,7 +105,7 @@ func (d *DingTalk) TestHandler() {
 	webHook := dingtalk.NewWebHook(d.Token, d.Sign)
 
 	content := DingContent{
-		Title:   "kubewatch",
+		Title:   "KubeWatch",
 		Message: "Testing Handler Configuration. This is a Test message.",
 		Kind:    "test",
 		Action:  "created",
@@ -131,7 +131,7 @@ func notifySlack(d *DingTalk, obj interface{}, action string) {
 	e := kbEvent.New(obj, action)
 
 	content := DingContent{
-		Title:   "kubewatch",
+		Title:   "KubeWatch",
 		Message: e.DingMessage(),
 		Action:  e.Reason,
 		Kind:    e.Kind,
