@@ -50,7 +50,7 @@ resourcesToWatch:
 image:
   registry: docker.io
 #  repository: bitnami/kubewatch
-  repository: guoxudongdocker/kubewatch
+  repository: guoxudongdocker/kubewatch-chart
 #  tag: 0.0.4-debian-9-r405
   tag: latest
   pullPolicy: Always

@@ -1,5 +1,5 @@
 FROM golang AS builder
-MAINTAINER "Cuong Manh Le <cuong.manhle.vn@gmail.com>"
+MAINTAINER "Guo Xudong <sunnydog0826@gmail.com>"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends build-essential && \
