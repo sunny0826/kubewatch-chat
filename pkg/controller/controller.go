@@ -487,9 +487,9 @@ func (c *Controller) processItem(newEvent Event) error {
 			c.eventHandler.ObjectUpdated(obj, kbEvent)
 			updateSet.Add(kbEvent.Name)
 			go func() {
-				time.AfterFunc(30*time.Second, func(){
-					fmt.Println("30 second")
+				time.AfterFunc(60*time.Second, func(){
 					updateSet.Remove(kbEvent.Name)
+					fmt.Println("60 second")
 				})
 			}()
 		}
